@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.mappers.DepartmentsMapper">
+    <resultMap id="BaseResultMap" type="com.demo.pojo.Departments">
+        <id column="dept_name" jdbcType="VARCHAR" property="deptName" />
+        <result column="dept_no" jdbcType="VARCHAR" property="deptNo" />
+    </resultMap>
+
+    <select id="getDepartmentsList" resultType="com.demo.pojo.Departments">
+        select * from departments order by emp_no asc  limit #{num}
+    </select>
+
+    <select id="getDeptEmpByDeptNo" resultType="com.demo.pojo.Departments">
+        select * from departments where dept_no=#{deptNo}
+    </select>
+</mapper>

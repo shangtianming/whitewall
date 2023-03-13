@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.mappers.DeptEmpMapper">
+    <resultMap id="BaseResultMap" type="com.demo.pojo.DeptEmp">
+        <id column="emp_no" jdbcType="VARCHAR" property="empNo" />
+        <result column="dept_no" jdbcType="VARCHAR" property="deptNo" />
+        <result column="from_date" jdbcType="DATE" property="fromDate" />
+        <result column="to_date" jdbcType="DATE" property="toDate" />
+    </resultMap>
+
+    <select id="getDeptEmpList" resultType="com.demo.pojo.DeptEmp">
+        select * from dept_emp order by emp_no asc  limit #{num}
+    </select>
+
+    <select id="getDeptEmpByEmpNo" resultType="com.demo.pojo.DeptEmp">
+        select * from dept_emp where emp_no=#{empNo}
+    </select>
+
+    <select id="getDeptEmpByDeptNo" resultType="com.demo.pojo.DeptEmp">
+        select * from dept_emp where dept_no=#{deptNo}
+    </select>
+</mapper>
