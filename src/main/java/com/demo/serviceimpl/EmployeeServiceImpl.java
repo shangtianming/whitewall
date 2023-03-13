@@ -21,7 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employees getEmployees(Integer empNo) {
         Employees employees= employeesMapper.getEmployees(empNo);
-        System.out.println("== "+employees.toString());
+        System.out.println("==  "+employees.toString());
         return employees;
     }
 
